@@ -6,10 +6,10 @@ import os
 print('enter the skill you have ')
 user_skill=input(">>>>>")
 def find_job(page):
-    request_data=requests.get(f'https://www.timesjobs.com/candidate/job-search.html?from=submit&actualTxtKeywords=Python&searchBy=0&rdoOperator=OR&searchType=personalizedSearch&luceneResultSize=25&postWeek=60&txtKeywords=Python&pDate=I&sequence=2&startPage={page}')
+    request_data=requests.get(f'https://www.timesjobs.com/candidate/job-search.html?from=submit&actualTxtKeywords=P`ython&searchBy=0&rdoOperator=OR&searchType=personalizedSearch&luceneResultSize=25&postWeek=60&txtKeywords=Python&pDate=I&sequence=2&startPage={page}')
     info=BeautifulSoup(markup=request_data.text,features='lxml')
     joblist=info.find_all(name='li',class_="clearfix job-bx wht-shd-bx")
-    if os.path.isdir(f'D:\webscrapping\job\{page}'):
+    if os.path.isdir (f'D:\webscrapping\job\{page}'):
         pass   
     else:os.mkdir(f'D:\webscrapping\job\{page}')
 
@@ -34,13 +34,10 @@ def find_job(page):
     
 
 if __name__=='__main__':
-    counter:int= 1
-    while(counter<=10):
-       
+    counter:int 
+    for counter in range(1,11):
         find_job(page=counter)
-        counter+=1
-        watiing_time=5
+        watiing_time=10
         print("*"*10+'  waiting  'f'{watiing_time}sec  '+'*'*10)
-       
-        time.sleep(5)
+        time.sleep(10)
     
